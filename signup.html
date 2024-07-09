@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <style>
+        label {
+            font-family: 'Montserrat', sans-serif;
+            font-variant: small-caps;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-family:'Josefin Sans',sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Create a new account</h3>
+    <form id="loginForm" action="/login" method="POST">
+        <label for="name">Full name:</label>
+        <input type="text" id="fn" name="name" required>
+        <label for="phno">Phone number:</label>
+        <input type="number" id="phno" name="phno" required>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <label for="confirm">Confirm Password:</label>
+        <input type="password" id="cnfm" name="confirm" onkeyup="checkPass()" required>
+        <div id="cnfmsg" style="color:red"></div>
+        <button type="submit" id="butt">Sign up</button>
+
+    </form>
+    <script>
+        function checkPass(){
+            var a=document.getElementById("password").value;
+            var b=document.getElementById("cnfm").value;
+            var c=document.getElementById("cnfmsg");
+            var d=document.getElementById("butt");
+            c.style.fontFamily='Montserrat,sans-serif'
+            if(a!=b){
+                c.innerHTML="Password does not match";
+                d.disabled=true;
+            }else{
+                c.innerHTML="";
+                d.disabled=false;
+            }
+        }
+    </script>
+</body>
+
+</html>
