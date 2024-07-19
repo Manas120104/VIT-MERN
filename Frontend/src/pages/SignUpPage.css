@@ -1,0 +1,287 @@
+/* Body styles */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background: url('https://www.shutterstock.com/image-photo/night-beautiful-abstract-blurred-office-600nw-2405412243.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Dashboard */
+.dashboard {
+    position: relative;
+    bottom: 40px;
+    right: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dashboard button {
+    position: relative; /* Ensure pseudo-element is positioned relative to the button */
+    padding: 12px 24px; /* Adjusted padding for better touch area */
+    background-color: #051e38;
+    border: none;
+    border-radius: 25px; /* Adjusted border-radius for a rounded shape */
+    color: rgb(232, 246, 244);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Drop shadow for depth */
+    outline: none; /* Remove default focus outline */
+    overflow: hidden; /* Ensure overflow is hidden */
+}
+
+.dashboard button:hover {
+    background-color: #14375c;
+    transform: scale(1.1); /* Scale up on hover */
+}
+
+.dashboard button::before {
+    content: ''; /* Create a pseudo-element for decoration */
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the pseudo-element */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background: linear-gradient(45deg, #051e38, #14375c); /* Gradient effect */
+    border-radius: 20px; /* Match button's border-radius */
+    z-index: -1; /* Behind the button */
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.dashboard button:hover::before {
+    opacity: 1;
+    transform: scale(2); /* Scale up on hover */
+}
+
+
+/* Sign up container styles */
+.sign-up-container {
+    background: rgba(55, 69, 94, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    width: 450px;
+    text-align: center;
+    animation: slideIn 1s ease-out;
+    margin-top: 30vh; /* Added margin to create a gap of 80px from the navbar */
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #fff;
+    animation: fadeIn 2s ease-in;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.input-group select {
+    width: calc(100% - 20px);
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: background-color 0.3s, transform 0.3s;
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none; /* Remove default arrow for Safari/Chrome */
+    -moz-appearance: none; /* Remove default arrow for Firefox */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 14l-5-5h10l-5 5z" fill="%23fff"/></svg>'); /* Custom arrow icon */
+    background-size: 12px;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+.input-group select option {
+    background-color: #051e38; /* Background color */
+    color: white; /* Text color */
+    font-size: 16px; /* Font size */
+}
+
+  
+
+input:focus,
+.input-group select:focus {
+    background-color: rgba(255, 255, 255, 0.2); /* Lighter background on focus */
+    outline: none;
+    transform: scale(1.02); /* Slight scale up on focus */
+}
+
+/* Generate OTP button styles */
+#generate-otp-btn {
+    background-color: #23abdc; /* Button color */
+    border-radius: 25px; /* Rounded shape */
+    color: #fff; /* Text color */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Cursor style */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Drop shadow for depth */
+    outline: none; /* Remove default focus outline */
+    overflow: hidden; /* Ensure overflow is hidden */
+    padding: 12px 24px; /* Adjusted padding for better touch area */
+    position: center; /* Fixed position */
+    bottom: 20px; /* Adjusted position */
+    right: 20px; /* Adjusted position */
+}
+
+#generate-otp-btn:hover {
+    background-color: #87daef; /* Hover background color */
+    transform: scale(1.1); /* Scale up on hover */
+}
+
+#generate-otp-btn::before {
+    content: ''; /* Create a pseudo-element for decoration */
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the pseudo-element */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background: linear-gradient(45deg, #23abdc, #87daef); /* Gradient effect */
+    border-radius: 25px; /* Match button's border-radius */
+    z-index: -1; /* Behind the button */
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+#generate-otp-btn:hover::before {
+    opacity: 1;
+    transform: scale(2); /* Scale up on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .dashboard {
+        top: 10px; /* Adjusted gap for smaller screens */
+        right: 20px;
+        gap: 5px; /* Reduced gap between buttons for smaller screens */
+    }
+
+    .sign-up-container {
+        padding: 30px;
+    }
+
+    .sign-up-image {
+        width: 70%;
+        max-width: 120px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    input,
+    .input-group select {
+        padding: 10px;
+    }
+
+    #generate-otp-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 20px; /* Adjusted padding for smaller screens */
+        font-size: 14px; /* Reduced font size for smaller screens */
+    }
+}
+
+#error-message{
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

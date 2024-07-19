@@ -1,0 +1,75 @@
+/* NavBar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #051e38; /* Navbar background color */
+    color: #fff; /* Text color */
+    padding: 20px 20px; /* Padding for the navbar */
+    position: fixed; /* Fixed position */
+    top: 0; /* Positioned at the top */
+    left: 0; /* Positioned at the left */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it's above other content */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.navbar-left, .navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.organization-name {
+    font-size: 1.5rem; /* Example font size */
+    margin-right: 20px; /* Example margin */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 20px; /* Example margin between items */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #87daef; /* Hover color */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 0; /* Adjusted padding */
+    }
+
+    .navbar-left, .navbar-right {
+        width: 100%; /* Full width for both sections */
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 10px; /* Margin for spacing */
+    }
+
+    .organization-name {
+        margin-bottom: 10px; /* Margin for spacing */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin-left: 0; /* Remove margin between items */
+        margin-bottom: 10px; /* Margin below each item */
+    }
+}
