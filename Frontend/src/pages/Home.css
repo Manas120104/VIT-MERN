@@ -17,47 +17,79 @@ body, html {
 
 .content {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    height: 100vh; /* Full viewport height */
     padding: 20px;
 }
 
 .left-section {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50%; /* Adjust width as needed */
+    align-items: center; /* Center items vertically */
+    width: 100%; /* Full width of the container */
+    max-width: 1200px; /* Max width to prevent excessive stretching */
+    position: relative; /* Allows positioning the image further to the left */
 }
 
 .left-image {
-    max-width: 100%;
+    max-width: 40%; /* Adjust width to be slightly larger */
     height: auto;
-    border: 5px solid white;
+    border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: absolute; /* Absolute positioning to move further left */
+    left: -15%; /* Move image further left */
 }
 
-.right-section {
+.text-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 50%; /* Adjust width as needed */
-    margin-left: 20px; /* Adjust margin as needed */
+    align-items: center; /* Center text horizontally */
+    justify-content: center; /* Center text vertically */
+    text-align: center; /* Center text alignment */
+    margin-left: 30%; /* Adjust margin to leave space for the image */
+    max-width: 70%; /* Limit text width */
 }
 
-.btn {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-bottom: 10px; /* Adjust margin as needed */
+
+.tagline {
+    font-size: 2.9rem; /* Larger font size */
+    text-shadow: 3px 3px 4px white; /* Add shadow for better readability */
+    color:black;
+    font-weight: bold; /* Bolder text */
+    margin-bottom: 20px; /* Increase space between lines */
 }
 
-.btn:hover {
-    background-color: #0056b3;
+.middle {
+    font-size: 5rem; /* Larger font size */
+    text-shadow: 2px 2px 4px white; /* Add shadow for better readability */
+    color:rgb(7, 36, 252);
+    font-weight: bold; /* Bolder text */
+    margin-bottom: 20px; /* Increase space between lines */
+}
+
+.sub-tagline {
+    font-size: 2.9rem; /* Slightly smaller font size for sub-tagline */
+    font-weight: bold; /* Bolder text */
+    color:white;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: center;
+        text-align: center; /* Center text on small screens */
+    }
+
+    .left-image {
+        max-width: 70%; /* Adjust image width on small screens */
+        left: 0; /* Reset position */
+        margin-bottom: 20px; /* Space between image and text on small screens */
+    }
+
+    .text-section {
+        margin-left: 0; /* Reset margin on small screens */
+        max-width: 100%; /* Full width for text on small screens */
+    }
 }

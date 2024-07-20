@@ -226,9 +226,14 @@ input:focus,
     }
 }
 
-#error-message{
-    font-family: Arial, sans-serif;
-    color: #fff;
+.error-message {
+    font-size: 1.2rem; /* Increase font size for better visibility */
+    color: white;
+    background-color: #d9534f; /* Red background for error */
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
 

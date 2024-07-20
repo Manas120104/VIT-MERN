@@ -16,10 +16,46 @@ const SignUpPage = () => {
 
     const navigate = useNavigate();
 
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    const validatePassword = (password) => {
+        const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
+        return passwordRegex.test(password);
+    };
+
+    const validateMobileNumber = (mobileNumber) => {
+        const mobileNumberRegex = /^[0-9]{10}$/;
+        return mobileNumberRegex.test(mobileNumber);
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        if (!name || !email || !username || !password || !confirmPassword || !mobileNumber || !address || !role) {
+            setError('All fields are mandatory.');
+            return;
+        }
+
+        if (!validateEmail(email)) {
+            setError('Invalid email format.');
+            return;
+        }
+
+        if (!validatePassword(password)) {
+            setError('Not a strong password. Password must be at least 8 characters long and contain both letters and numbers.');
+            return;
+        }
+
         if (password !== confirmPassword) {
-            alert('Passwords do not match');
+            setError('Passwords do not match.');
+            return;
+        }
+
+        if (!validateMobileNumber(mobileNumber)) {
+            setError('Invalid mobile number. It should be a 10-digit number.');
             return;
         }
 
@@ -41,7 +77,6 @@ const SignUpPage = () => {
                 navigate('/Sign-in');
             } else if (response.error) {
                 setError(response.error); // Set error state
-                alert(error,"Try again");
             }
         } catch (error) {
             setError('An unexpected error occurred. Please try again.');
@@ -56,10 +91,9 @@ const SignUpPage = () => {
         <div className="sign-up-page">
             <div className="sign-up-container">
                 <h1>Sign Up to Register</h1>
-                {error ? (<div className="error-message">{error}</div>) : (
-                <div></div>)}
+                {error && <div className="error-message">{error}</div>}
                 <form id="signUpForm" onSubmit={handleSubmit} method="POST">
-                <div className="input-group">
+                    <div className="input-group">
                         <label htmlFor="name">Name</label>
                         <input
                             type="text"
@@ -145,7 +179,7 @@ const SignUpPage = () => {
                             onChange={handleRoleChange}
                             required
                         >
-                            <option value=""  id='sel'>Select</option>
+                            <option value="">Select</option>
                             <option value="user">User</option>
                             <option value="agent">Agent</option>
                         </select>
